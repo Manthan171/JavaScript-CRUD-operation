@@ -97,7 +97,7 @@ button{
     background-color: #fff;
     border-radius: 5px;
     max-height: 550px;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .bookdata-header{
