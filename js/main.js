@@ -7,7 +7,7 @@ function getData() {
   let bookId = isEdit ? data[editIndex].bookId : makeid(4);
   let bookName = document.getElementById("book-name").value;
   let authorName = document.getElementById("author-name").value;
-  let category = document.getElementById("category").value;
+  let category = document.querySelector("input[type=radio]:checked").value;
   let price = document.getElementById("price").value;
 
   console.log(data);
@@ -77,14 +77,18 @@ function editbtn(index){
 
     let bookName = editData[index].bookName;
     let author = editData[index].authorName;
-    let bookCat = editData[index].category;
+    let category = editData[index].category;
     let bookPrice = editData[index].price;
 
     document.getElementById("book-name").value = bookName;
     document.getElementById("author-name").value = author;
-    document.getElementById("category").value = bookCat;
     document.getElementById("price").value = bookPrice;
-    console.log(bookName);
+    let radioBtn = document.querySelectorAll('input[type="radio"]'); 
+    console.log(radioBtn);
+    for(let i = 0;i<radioBtn.length;i++){
+      console.log(radioBtn[i].value,'radio');
+      radioBtn[i].checked = radioBtn[i].value===category;
+    }
 }
 
 // < -------------------- Delete Functionality ---------------------->
