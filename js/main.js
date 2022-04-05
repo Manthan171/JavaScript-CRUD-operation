@@ -10,6 +10,10 @@ function getData() {
   let category = document.querySelector("input[type=radio]:checked").value;
   let price = document.getElementById("price").value;
   let checkbox = document.getElementsByName('check');
+
+  const imageElement = document.getElementById("img").files[0];
+  const image = URL.createObjectURL(imageElement);
+
   console.log(checkbox);
   let check = [];
   for(let i = 0; i<checkbox.length;i++){
@@ -28,6 +32,7 @@ function getData() {
     category,
     price,
     checkbox:check.join(`,<br>`),
+    image,
   };
   if(isEdit){
     isEdit = false;
@@ -69,6 +74,7 @@ function displayData() {
                         <td>${element.category}</td>
                         <td>${element.checkbox}</td>
                         <td>${element.price}</td>
+                        <td><img src = "${element.image}" /></td>
                         <td class="btn">
                             <button id="editBtn" onclick = "editbtn(${index})"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                             <button onclick = "deleteBtn(${index})"><i class="fa fa-trash" aria-hidden="true"></i></button>
@@ -118,3 +124,4 @@ function deleteBtn(index) {
   localStorage.setItem("data", JSON.stringify(getData));
   displayData();
 }
+
