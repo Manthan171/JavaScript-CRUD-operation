@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>Book Store</title>
+  </head>
+  <body>
+    <div class="main-div">
+      <div class="bg-color"></div>
+      <div class="header">
+        <h2>Book Store Data</h2>
+      </div>
+      <div class="main-content">
+        <div class="add-book">
+          <h2>ADD BOOK</h2>
+        </div>
+        <form class="form" onsubmit="getData()" autocomplete="off">
+          <!-- <div class="form-group">
+            <label>Book Id</label>
+            <input id="book-id" type="number" required />
+          </div> -->
+          <div class="form-group">
+            <label>Book Name</label>
+            <input
+              id="book-name"
+              type="text"
+              placeholder="Enter the name of the book"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label>Author</label>
+            <input
+              id="author-name"
+              type="text"
+              placeholder="Enter the name of the author"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label>Category</label>
+            <input
+              id="category"
+              type="text"
+              placeholder="Enter the category"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label>Price</label>
+            <input id="price" type="number" required />
+          </div>
+          <div class="form-group form-btn">
+            <button type="submit" id="main-btn">Submit</button>
+          </div>
+        </form>
+      </div>
+      <div class="book-data">
+        <div class="bookdata-header">
+          <h2>BOOK DATA</h2>
+        </div>
+        <table class="list" id="booklist">
+          <thead>
+            <tr>
+              <th>Book Id</th>
+              <th>Book Name</th>
+              <th>Author</th>
+              <th>Category</th>
+              <th>Price</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="table-info"></tbody>
+        </table>
+      </div>
+    </div>
+    <script src="./js/main.js"></script>
+  </body>
+</html>
