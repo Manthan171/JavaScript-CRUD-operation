@@ -9,6 +9,16 @@ function getData() {
   let authorName = document.getElementById("author-name").value;
   let category = document.querySelector("input[type=radio]:checked").value;
   let price = document.getElementById("price").value;
+  let checkbox = document.getElementsByName('check');
+  console.log(checkbox);
+  let check = [];
+  for(let i = 0; i<checkbox.length;i++){
+    if(checkbox[i].checked){
+      check.push(checkbox[i].value)
+      console.log(check);
+    }
+  }
+  console.log(check);
 
   console.log(data);
   const updatedData = {
@@ -17,6 +27,7 @@ function getData() {
     authorName,
     category,
     price,
+    checkbox:check.join(','),
   };
   if(isEdit){
     isEdit = false;
@@ -56,6 +67,7 @@ function displayData() {
                         <td>${element.bookName}</td>
                         <td>${element.authorName}</td>
                         <td>${element.category}</td>
+                        <td>${element.checkbox}</td>
                         <td>${element.price}</td>
                         <td class="btn">
                             <button id="editBtn" onclick = "editbtn(${index})"><i class="fa fa-pencil" aria-hidden="true"></i></button>
@@ -79,6 +91,7 @@ function editbtn(index){
     let author = editData[index].authorName;
     let category = editData[index].category;
     let bookPrice = editData[index].price;
+    let check = editData[index].checkbox;
 
     document.getElementById("book-name").value = bookName;
     document.getElementById("author-name").value = author;
@@ -89,6 +102,11 @@ function editbtn(index){
       console.log(radioBtn[i].value,'radio');
       radioBtn[i].checked = radioBtn[i].value===category;
     }
+  let checkbox = document.getElementsByName('check');
+  for(let i = 0;i<checkbox.length;i++){
+    checkbox[i].checked = check.includes(checkbox[i].value);
+  }
+
 }
 
 // < -------------------- Delete Functionality ---------------------->
