@@ -67,7 +67,7 @@ border-radius: 5px 5px 0 0;
 
 .form-group{
     display: flex;
-    justify-content: space-around;
+    /* justify-content: space-around; */
     margin: 10px auto;
     padding: 0 20px;
 }
@@ -126,4 +126,39 @@ tr{
     display: flex;
     justify-content: center;
     align-items: center;
+    width: auto !important;
+}
+
+
+.radio-group input{
+    width: auto !important;
+    margin-right: 10px;
+}
+
+.checkbox-group{
+    display: flex;
+    width: auto !important;
+    align-items: center;
+}
+.checkbox{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.checkbox-group input{
+    width: auto;
+    margin-right: 10px;
+}
+
+.form-btn{
+    justify-content: center;
+}
+
+.radio-btn{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
 }
