@@ -121,3 +121,9 @@ tr{
     display: flex;
     justify-content: space-around;
 }
+
+.radio-group{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
