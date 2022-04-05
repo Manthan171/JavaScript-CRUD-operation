@@ -62,7 +62,7 @@ border-radius: 5px 5px 0 0;
 }
 
 .form{
-    margin: 72px 0;
+    margin: 50px 0;
 }
 
 .form-group{
@@ -120,8 +120,14 @@ tr{
 .btn{
     display: flex;
     justify-content: space-around;
+    align-items: center;
+    height: 60px;
 }
 
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
 .radio-group{
     display: flex;
     justify-content: center;

@@ -27,7 +27,7 @@ function getData() {
     authorName,
     category,
     price,
-    checkbox:check.join(','),
+    checkbox:check.join(`,<br>`),
   };
   if(isEdit){
     isEdit = false;
