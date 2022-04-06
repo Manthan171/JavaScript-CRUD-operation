@@ -34,6 +34,7 @@ function getData() {
     checkbox:check.join(`,<br>`),
     image,
   };
+if(validateForm(updatedData)){
   if(isEdit){
     isEdit = false;
     data[editIndex] = updatedData;
@@ -41,10 +42,13 @@ function getData() {
   }else{
     data.push(updatedData);
   }
-
-
   localStorage.setItem("data", JSON.stringify(data));
   displayData();
+  return true;
+}else{
+  displayData(); 
+  return false;
+}
 }
 
 // < --------------------- Generate random string for book id ---------------->
@@ -125,3 +129,26 @@ function deleteBtn(index) {
   displayData();
 }
 
+// < -------------------- Image Validation ------------------------------->
+
+function imageValid(){
+  let imageEle = document.getElementById("img");
+  let filepath = imageEle.value;
+
+  let allowExtension = /(\.jpg|\.jpeg|\.png)$/i;
+  if (!allowExtension.exec(filepath)) {
+    document.getElementById("warning").innerHTML = "*Please select the valid file";
+    imageEle.value = '';
+    return false;
+} 
+}
+
+function validateForm(data) {
+  let x = document.getElementById("book-name").value;
+  console.log("x.trim() :", x.trim().length);
+  if (x.trim() === "") {
+    document.getElementById("warn").innerHTML = false;
+    return false;
+  }
+  return true;
+}

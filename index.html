@@ -21,7 +21,7 @@
         <div class="add-book">
           <h2>ADD BOOK</h2>
         </div>
-        <form class="form" onsubmit="getData()" autocomplete="off">
+        <form class="form" onsubmit="return getData();" autocomplete="off">
           <!-- <div class="form-group">
             <label>Book Id</label>
             <input id="book-id" type="number" required />
@@ -34,6 +34,7 @@
               placeholder="Enter the name of the book"
               required
             />
+            <p class="warn" id="warn"></p>
           </div>
           <div class="form-group">
             <label>Author</label>
@@ -54,7 +55,12 @@
             /> -->
             <div class="radio-btn">
               <label class="radio-group"
-                ><input type="radio" name="radio" value="Drama" />Drama</label
+                ><input
+                  type="radio"
+                  name="radio"
+                  value="Drama"
+                  checked
+                />Drama</label
               >
               <label class="radio-group"
                 ><input type="radio" name="radio" value="Comic" />Comic</label
@@ -124,7 +130,8 @@
             <input id="price" type="number" required />
           </div>
           <div class="form-group">
-            <input type="file" id="img" accept="image/png, image/jpeg" />
+            <input type="file" id="img" onchange="imageValid()" />
+            <p id="warning" class="warning"></p>
           </div>
           <div class="form-group form-btn">
             <button type="submit" id="main-btn">Submit</button>
