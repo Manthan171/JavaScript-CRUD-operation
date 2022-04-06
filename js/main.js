@@ -74,7 +74,7 @@ function displayData() {
                         <td>${element.category}</td>
                         <td>${element.checkbox}</td>
                         <td>${element.price}</td>
-                        <td><img src = "${element.image}" /></td>
+                        <td><img class="image" src = "${element.image}" /></td>
                         <td class="btn">
                             <button id="editBtn" onclick = "editbtn(${index})"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                             <button onclick = "deleteBtn(${index})"><i class="fa fa-trash" aria-hidden="true"></i></button>

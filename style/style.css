@@ -8,6 +8,18 @@
     src: url(../font/Poppins-Regular.otf);
 }
 
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%); 
+}
+
 body{
     font-family: "Poppins";
     font-size: 14px;
@@ -167,4 +179,13 @@ table, th, td {
     justify-content: center;
     align-items: flex-start;
     flex-direction: column;
+}
+
+.image{
+    width: 70px;
+    height: 100px;
+}
+
+input{
+    outline: none;
 }
