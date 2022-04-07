@@ -194,3 +194,9 @@ input{
     color: red;
     font-size: 12px;
 }
+
+.warn{
+    color: red;
+    font-size: 12px;
+    margin-left: 10px;
+}
