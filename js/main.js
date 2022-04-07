@@ -129,7 +129,7 @@ function deleteBtn(index) {
   displayData();
 }
 
-// < -------------------- Image Validation ------------------------------->
+// < -------------------- Form Validation ------------------------------->
 
 function imageValid(){
   let imageEle = document.getElementById("img");
@@ -144,10 +144,14 @@ function imageValid(){
 }
 
 function validateForm(data) {
-  let x = document.getElementById("book-name").value;
-  console.log("x.trim() :", x.trim().length);
-  if (x.trim() === "") {
+  let name = document.getElementById("book-name").value;
+  if (name.trim() === "") {
     document.getElementById("warn").innerHTML = false;
+    return false;
+  }
+  let author  = document.getElementById("author-name").value;
+  if (author.trim() === "") {
+    document.getElementById("warn1").innerHTML = false;
     return false;
   }
   return true;
