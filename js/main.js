@@ -7,7 +7,8 @@ function getData() {
   let bookId = isEdit ? data[editIndex].bookId : makeid(4);
   let bookName = document.getElementById("book-name").value;
   let authorName = document.getElementById("author-name").value;
-  let category = document.querySelector("input[type=radio]:checked").value;
+  let categoryEle = document.querySelector("input[type=radio]:checked");
+  let category = (categoryEle || {}).value;
   let price = document.getElementById("price").value;
   let checkbox = document.getElementsByName('check');
 
@@ -142,17 +143,40 @@ function imageValid(){
     return false;
 } 
 }
-
 function validateForm(data) {
-  let name = document.getElementById("book-name").value;
-  if (name.trim() === "") {
-    document.getElementById("warn").innerHTML = false;
+console.log(data);
+    // Book name validation
+  if (data.bookName.trim() === "") {
+    document.getElementById("warn").innerHTML = "*Please enter the value in the field";
     return false;
   }
-  let author  = document.getElementById("author-name").value;
-  if (author.trim() === "") {
-    document.getElementById("warn1").innerHTML = false;
-    return false;
+  else{
+    document.getElementById("warn").innerHTML = "";
   }
+
+    // Author name validation
+  if (data.authorName.trim() === "") {
+    document.getElementById("warn1").innerHTML = "*Please enter the value in the field";
+    return false;
+  }else{
+    document.getElementById("warn").innerHTML = "";
+  }
+
+  // Radio button validation
+if(!data.category || (!!data.category && data.category === "")){
+  document.getElementById("warn3").innerHTML = false;
+  return false;
+}else{
+  document.getElementById("warn3").innerHTML = "";
+}
+    //  CheckBox validation
+  
+  if(data.checkbox.length == 0){
+    document.getElementById("warn2").innerHTML = "*Please check atleast one checkbox";
+    return false;
+  }else{
+    document.getElementById("warn").innerHTML = "";
+  }
+
   return true;
 }

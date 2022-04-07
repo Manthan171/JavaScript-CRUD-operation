@@ -21,32 +21,38 @@
         <div class="add-book">
           <h2>ADD BOOK</h2>
         </div>
-        <form class="form" onsubmit="return getData();" autocomplete="off">
+        <form class="form" autocomplete="off">
           <!-- <div class="form-group">
             <label>Book Id</label>
             <input id="book-id" type="number" required />
           </div> -->
           <div class="form-group">
-            <label>Book Name</label>
+            <label
+              >Book Name
+              <p class="warn" id="warn"></p
+            ></label>
             <input
               id="book-name"
               type="text"
               placeholder="Enter the name of the book"
             />
-            <p class="warn" id="warn"></p>
           </div>
           <div class="form-group">
-            <label>Author</label>
+            <label
+              >Author
+              <p class="warn" id="warn1"></p
+            ></label>
             <input
               id="author-name"
               type="text"
               placeholder="Enter the name of the author"
-              required
             />
-            <p class="warn" id="warn1"></p>
           </div>
           <div class="form-group">
-            <label>Category</label>
+            <label
+              >Category
+              <p class="warn" id="warn3"></p
+            ></label>
             <!-- <input
               id="category"
               type="text"
@@ -55,12 +61,7 @@
             /> -->
             <div class="radio-btn">
               <label class="radio-group"
-                ><input
-                  type="radio"
-                  name="radio"
-                  value="Drama"
-                  checked
-                />Drama</label
+                ><input type="radio" name="radio" value="Drama" />Drama</label
               >
               <label class="radio-group"
                 ><input type="radio" name="radio" value="Comic" />Comic</label
@@ -85,7 +86,10 @@
             </div>
           </div>
           <div class="form-group">
-            <label>Retailers</label>
+            <label
+              >Retailers
+              <p class="warn" id="warn2"></p
+            ></label>
             <div class="checkbox">
               <label class="checkbox-group"
                 ><input
@@ -123,18 +127,24 @@
                 />
                 American West Books, Inc.
               </label>
+              <label class="checkbox-group"
+                ><input type="checkbox" name="check" value="Others." />
+                Others.
+              </label>
             </div>
           </div>
           <div class="form-group">
             <label>Price</label>
-            <input id="price" type="number" required />
+            <input id="price" type="number" />
           </div>
           <div class="form-group">
             <input type="file" id="img" onchange="imageValid()" />
             <p id="warning" class="warning"></p>
           </div>
           <div class="form-group form-btn">
-            <button type="submit" id="main-btn">Submit</button>
+            <button type="button" onclick="return getData();" id="main-btn">
+              Submit
+            </button>
           </div>
         </form>
       </div>
