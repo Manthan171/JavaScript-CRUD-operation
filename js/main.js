@@ -13,8 +13,9 @@ function getData() {
   let price = document.getElementById("price").value;
   let checkbox = document.getElementsByName('check');
 
-  const imageElement = document.getElementById("img").files[0];
-  const image = URL.createObjectURL(imageElement);
+  const imageElement = document.getElementById("img").files;
+
+  const image = (imageElement[0] || {}).name || "";
   // console.log(imageElement);
   // console.log(image);
 
@@ -43,6 +44,7 @@ if(validateForm(updatedData)){
     isEdit = false;
     data[editIndex] = updatedData;
     editIndex = -1;
+    document.getElementById("main-btn").innerHTML = "Submit";
   }else{
     data.push(updatedData);
   }
@@ -82,7 +84,7 @@ function displayData() {
                         <td>${element.category}</td>
                         <td>${element.checkbox}</td>
                         <td>${element.price}</td>
-                        <td><img class="image" src = "${element.image}" /></td>
+                        <td>${element.image}</td>
                         <td class="btn">
                             <button id="editBtn" onclick = "editbtn(${index})"><i class="fa fa-pencil" aria-hidden="true"></i></button>
                             <button onclick = "deleteBtn(${index})"><i class="fa fa-trash" aria-hidden="true"></i></button>
@@ -90,6 +92,7 @@ function displayData() {
                     </tr>`;
   });
   tableData.innerHTML = createData;
+  document.getElementById("form").reset();
 }
 
 // < ------------------------ Edit functionality ------------------------------>
@@ -193,7 +196,7 @@ if(!data.category || (!!data.category && data.category === "")){
   // Image validation
   // const imageElement = document.getElementById("img").files[0];
   const imgValid = document.getElementById("img");
-  console.log(imageElement);
+  // console.log(imageElement);
   if(imgValid.files.length == 0){
     document.getElementById("warn5").innerHTML = "*Please enter the price";
     return false;
