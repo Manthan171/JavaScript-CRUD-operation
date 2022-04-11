@@ -21,7 +21,7 @@
         <div class="add-book">
           <h2>ADD BOOK</h2>
         </div>
-        <form class="form" autocomplete="off">
+        <form class="form" onsubmit="getData();" autocomplete="off">
           <!-- <div class="form-group">
             <label>Book Id</label>
             <input id="book-id" type="number" required />
@@ -134,17 +134,19 @@
             </div>
           </div>
           <div class="form-group">
-            <label>Price</label>
+            <label
+              >Price
+              <p class="warn" id="warn4"></p
+            ></label>
             <input id="price" type="number" />
           </div>
           <div class="form-group">
             <input type="file" id="img" onchange="imageValid()" />
+            <p class="warn" id="warn5"></p>
             <p id="warning" class="warning"></p>
           </div>
           <div class="form-group form-btn">
-            <button type="button" onclick="return getData();" id="main-btn">
-              Submit
-            </button>
+            <button type="submit" id="main-btn">Submit</button>
           </div>
         </form>
       </div>

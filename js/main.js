@@ -3,6 +3,7 @@ let editIndex = -1;
 window.onload = displayData();
 // < --------------- Get Data ------------------>
 function getData() {
+  event.preventDefault();
   let data = JSON.parse(localStorage.getItem("data")) || [];
   let bookId = isEdit ? data[editIndex].bookId : makeid(4);
   let bookName = document.getElementById("book-name").value;
@@ -14,18 +15,20 @@ function getData() {
 
   const imageElement = document.getElementById("img").files[0];
   const image = URL.createObjectURL(imageElement);
+  // console.log(imageElement);
+  // console.log(image);
 
   console.log(checkbox);
   let check = [];
   for(let i = 0; i<checkbox.length;i++){
     if(checkbox[i].checked){
       check.push(checkbox[i].value)
-      console.log(check);
+      // console.log(check);
     }
   }
-  console.log(check);
+  // console.log(check);
 
-  console.log(data);
+  // console.log(data);
   const updatedData = {
     bookId,
     bookName,
@@ -96,7 +99,7 @@ function editbtn(index){
     editIndex = index;
     document.getElementById("main-btn").innerHTML = "Save Data";
     const editData = JSON.parse(localStorage.getItem('data'))||[];
-    console.log(editData);
+    // console.log(editData);
 
     let bookName = editData[index].bookName;
     let author = editData[index].authorName;
@@ -108,7 +111,7 @@ function editbtn(index){
     document.getElementById("author-name").value = author;
     document.getElementById("price").value = bookPrice;
     let radioBtn = document.querySelectorAll('input[type="radio"]'); 
-    console.log(radioBtn);
+    // console.log(radioBtn);
     for(let i = 0;i<radioBtn.length;i++){
       console.log(radioBtn[i].value,'radio');
       radioBtn[i].checked = radioBtn[i].value===category;
@@ -124,7 +127,7 @@ function editbtn(index){
 
 function deleteBtn(index) {
   let getData = JSON.parse(localStorage.getItem("data"));
-  console.log(getData);
+  // console.log(getData);
   getData.splice(index, 1);
   localStorage.setItem("data", JSON.stringify(getData));
   displayData();
@@ -144,7 +147,7 @@ function imageValid(){
 } 
 }
 function validateForm(data) {
-console.log(data);
+// console.log(data);
     // Book name validation
   if (data.bookName.trim() === "") {
     document.getElementById("warn").innerHTML = "*Please enter the value in the field";
@@ -159,12 +162,12 @@ console.log(data);
     document.getElementById("warn1").innerHTML = "*Please enter the value in the field";
     return false;
   }else{
-    document.getElementById("warn").innerHTML = "";
+    document.getElementById("warn1").innerHTML = "";
   }
 
   // Radio button validation
 if(!data.category || (!!data.category && data.category === "")){
-  document.getElementById("warn3").innerHTML = false;
+  document.getElementById("warn3").innerHTML = "*please choose the category of the book";
   return false;
 }else{
   document.getElementById("warn3").innerHTML = "";
@@ -175,8 +178,27 @@ if(!data.category || (!!data.category && data.category === "")){
     document.getElementById("warn2").innerHTML = "*Please check atleast one checkbox";
     return false;
   }else{
-    document.getElementById("warn").innerHTML = "";
+    document.getElementById("warn2").innerHTML = "";
   }
 
+    // Price field validation
+  
+  if(data.price.length == 0){
+    document.getElementById("warn4").innerHTML = "*Please enter the price";
+    return false;
+  }else{
+    document.getElementById("warn4").innerHTML = "";
+  }
+
+  // Image validation
+  // const imageElement = document.getElementById("img").files[0];
+  const imgValid = document.getElementById("img");
+  console.log(imageElement);
+  if(imgValid.files.length == 0){
+    document.getElementById("warn5").innerHTML = "*Please enter the price";
+    return false;
+  }else{
+    document.getElementById("warn5").innerHTML = "";
+  }    
   return true;
 }
